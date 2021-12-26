@@ -21,7 +21,7 @@ class Message {
     self::$message = $message;
   }
 
-  private static $contentType = 'Content-Type: application/vnd.api+json'
+  private static $contentType = "Content-Type: application/vnd.api+json";
 
   public function notifyEmailNotFound() {
     http_response_code(StatusCode::$FORBIDDEN);
@@ -34,6 +34,17 @@ class Message {
   public function replyUser($user) {
     header(self::$contentType);
     http_response_code(StatusCode::$OK);
-  }
 
+    echo json_encode(array(
+      "data" => array(
+        "type" => "user",
+        "id" => $user->getEmail(),
+        "attributes" => array(
+          "name" => $user->getName(),
+          "email" => $user->getEmail(),
+          "password" => $user->getPassword()
+        )
+      )
+    ));
+  }
 }
