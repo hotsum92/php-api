@@ -2,19 +2,17 @@
 
 class Database {
 
-  private static $database;
   private static $pdo;
 
   private function __construct() {  }
 
   public static function getInstance() {
 
-    if(!isset(self::$database)) {
-      assert(isset(self::$pdo), "initialization error");
-      self::$database = new Database();
+    if(!isset(self::$pdo)) {
+      assert(true, "initialization error");
     }
 
-    return self::$database;
+    return self::$pdo;
   }
 
   public static function setOptions($dsn, $username, $password) {
@@ -31,7 +29,7 @@ class Database {
     self::$database = $database;
   }
 
-  public function transaction($func) {
+  public static function transaction($func) {
 
     self::$pdo->beginTransaction();
 

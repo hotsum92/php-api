@@ -24,11 +24,11 @@ class Content {
   }
 
   public function getEmail() {
-    return self::$dictionary['email'];
+    return self::$dictionary['data']['attributes']['email'];
   }
 
   public function getPassword() {
-    return self::$dictionary['password'];
+    return self::$dictionary['data']['attributes']['password'];
   }
 
 }

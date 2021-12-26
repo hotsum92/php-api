@@ -44,7 +44,7 @@ class MockContent {
 class MockMessage {
   public function notifyEmailNotFound() { echo "notify the email is not found.\n"; }
   public function notifyAuthenticationFailed() { echo "notify the authentication is failed.\n"; }
-  public function replyUser($user) { echo "reply user\n"; }
+  public function replyUser($user) { echo "authentication test successed \n"; }
 }
 
 class MockUserRepository {
